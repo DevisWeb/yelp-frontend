@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Api from "../api.js";
+import RestaurantCard from "../components/restaurantcard"
 import axios from "axios";
 export default function ViewRestaurantsAll() {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -14,19 +15,26 @@ export default function ViewRestaurantsAll() {
     Api.restaurants
       .getAll()
       .then((response) => {
-        setAllRestaurants(response.data);
+        setAllRestaurants(response.data.data);
         console.log(response.data);
+        console.log(response.data.data[0].name);
       })
       .catch((error) => {
         console.log("There was an error with your request");
       });
   }, []);
 
-  return <div></div>;
+  return <div>
+{allRestaurants.map((restaurant, index) => {
+  return (
+    <div className="row">
+      <div className="col-md-6">
+
+         <RestaurantCard image={restaurant.img} title={restaurant.name} description={restaurant.description} />
+          </div>
+    </div>
+  )
+})}
+  </div>;
 }
 
-// {allRestaurants.map((restaurant, index) => {
-//   return (
-//     <div key={index}>{console.log(`restaurant : ${restaurant}`)}</div>
-//   );
-// })
