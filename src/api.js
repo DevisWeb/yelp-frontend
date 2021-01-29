@@ -1,13 +1,19 @@
 import axios from "axios";
 
-const getRestaurants = `${process.env.REACT_APP_API_ENDPOINT}`;
+const getRestaurants = `${process.env.REACT_APP_API_RESTAURANTS_ALL}`;
+
+const getCities = `${process.env.REACT_APP_API_CITIES}`;
+
+const getTags = `${process.env.REACT_APP_API_TAGS}`;
 
 const Api = {
   restaurants: {
-    // getSearchResults: (search) => axios.get(`${getRestaurants}&query=${search}`),
+
     getAll: () => axios.get(`${getRestaurants}`),
-    // getById: (id) => axios.get(`${urlPost}&sys.id=${id}`),
-    // getByUser: (userId) => a,
+    getCities: () => axios.get(`${getCities}`),
+    getCitiesId: (id) => axios.get(`${getCities}/:id`),
+    getTags: () => axios.get(`${getTags}`),
+    //getTagsId: (id) => axios.get(`${getTags}/:id`),
   },
 };
 

@@ -11,6 +11,10 @@ export default function ViewRestaurantsAll() {
   //     // .then((response) => setPostsAll(response.data.items))
   //     // .catch((error) => console.error(error));
 
+
+
+
+
   useEffect(() => {
     Api.restaurants
       .getAll()

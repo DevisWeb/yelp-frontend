@@ -16,20 +16,28 @@ function App() {
   return (
     <div className="App">
       <div className="row">
-        <div className="col-8">col-8</div>
-        <div className="col-4">col-4</div>
-        <RestaurantCard />
-        <RestaurantCardBig />
-        <SearchBar />
-        <NavBar />
+
+        <div className="col-12">   <SearchBar /></div>
+
+
       </div>
       <div>
         <Switch>
           <Route path="/restaurant:id">
             <ViewRestaurant />
           </Route>
+           <Route path="/city:id">
+            <ViewRestaurant />
+          </Route>
           <Route path="/">
             <ViewRestaurantsAll />
+            <ViewCity />
+          </Route>
+
+
+           <Route path="/city/:id">
+
+            <ViewCity />
           </Route>
         </Switch>
       </div>
