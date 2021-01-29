@@ -11,8 +11,8 @@ export default function ViewRestaurantsAll() {
   //     // .catch((error) => console.error(error));
 
   useEffect(() => {
-    axios
-      .get("https://mini-yelp-db.herokuapp.com/restaurants")
+    Api.restaurants
+      .getAll()
       .then((response) => {
         setAllRestaurants(response.data);
         console.log(response.data);
