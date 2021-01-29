@@ -2,7 +2,7 @@
 import Api from "../api.js";
 import { useEffect, useState } from "react";
 import RestaurantCard from "./restaurantcard.js";
-
+import { useParams, Link } from "react-router-dom";
 export default function SearchBar({}) {
 
   const [valueFood, setValueFood] = useState('');
@@ -47,7 +47,9 @@ export default function SearchBar({}) {
       <button type="button" onClick={submitTags} className="btn btn-primary">Search Tags</button>
       <input onChange={(e) => setValueCity(e.target.value)} type="text" className="form-control" id="exampleInputCity" aria-describedby="emailHelp" placeholder="Enter City" />
       {console.log(valueCity)}
+      <Link to={`/city/${valueCity}`}>
       <button type="button" onClick={submitCity} className="btn btn-primary">Search City</button>
+      </Link>
     </div>
 
 

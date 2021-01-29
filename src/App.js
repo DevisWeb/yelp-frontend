@@ -29,9 +29,9 @@ function App() {
            <Route path="/city:id">
             <ViewRestaurant />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <ViewRestaurantsAll />
-            <ViewCity />
+
           </Route>
 
 

@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 export default function ViewCity({}) {
   const [viewCity, setViewCity] = useState([]);
 
+  const {id} = useParams();
+  console.log(id);
 
   // const submitCity = () => {
   //   //
