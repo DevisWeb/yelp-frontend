@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+import { Switch, Route, Link, useLocation } from "react-router-dom";
+// import views
+import ViewRestaurant from "./views/viewrestaurant";
+import ViewRestaurantsAll from "./views/viewrestaurantsall";
+import ViewRestaurantByTag from "./views/viewrestaurantbytag";
+import ViewCity from "./views/viewcity";
+// import components
+import RestaurantCard from "./components/restaurantcard";
+import RestaurantCardBig from "./components/restaurantcardbig";
+import SearchBar from "./components/searchbar";
+import NavBar from "./components/navbar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="row">
+        <div className="col-8">col-8</div>
+        <div className="col-4">col-4</div>
+        <RestaurantCard />
+        <RestaurantCardBig />
+        <SearchBar />
+        <NavBar />
+      </div>
+      <div>
+        <Switch>
+          <Route path="/restaurant:id">
+            <ViewRestaurant />
+          </Route>
+          <Route path="/">
+            <ViewRestaurantsAll />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
